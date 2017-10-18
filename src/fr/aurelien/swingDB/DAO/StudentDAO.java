@@ -57,10 +57,19 @@ public class StudentDAO implements DAOInterface<Student, StudentDAO> {
     private int insert(Student entity) throws SQLException {
         String sql = "INSERT INTO students ( name, firstName, sexe) VALUES (?,?,?)";
 
-        pstm = dbConnection.prepareStatement(sql);
+        pstm = dbConnection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         pstm.setString(1, entity.getName());
         pstm.setString(2, entity.getFirstName());
         pstm.setString(3, String.valueOf(entity.getSexe()));
+        
+        // Récupération de la clef auto incrémentée
+        ResultSet keyRs = pstm.getGeneratedKeys();
+        if(keyRs.next()){
+            entity.setId(keyRs.getInt("id"));
+            
+        }
+        
+        
         return pstm.executeUpdate();
     }
 
