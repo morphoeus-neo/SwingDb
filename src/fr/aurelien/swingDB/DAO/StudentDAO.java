@@ -140,14 +140,14 @@ public class StudentDAO implements DAOInterface<Student, StudentDAO> {
         String sql = "SELECT * FROM students ";
         pstm = dbConnection.prepareStatement(sql);
 
-        pstm.executeQuery();
+        resultSet = pstm.executeQuery();
         return this;
     }
 
 public List<Student> getAll() throws SQLException{
     List<Student> studentList = new ArrayList<>();
     
-    while (! resultSet.isAfterLast()) {
+    while (resultSet.isBeforeFirst()) {
         studentList.add(this.getOne());
         
     }
@@ -156,7 +156,7 @@ public List<Student> getAll() throws SQLException{
 
 public List<Map<String, String>> getAllAsArray() throws SQLException{
      List<Map<String, String>> studentList = new ArrayList<>();
-    while (!resultSet.isAfterLast()) {
+    while (resultSet.isBeforeFirst()) {
         studentList.add(this.getOneAsMap());
         
         

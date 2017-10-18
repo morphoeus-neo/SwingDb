@@ -5,6 +5,11 @@
  */
 package fr.aurelien.swingDB.frame;
 
+import fr.aurelien.database.utils.DatabaseConnection;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JInternalFrame;
 
 /**
@@ -47,6 +52,10 @@ public class MainFrame extends javax.swing.JFrame {
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        studentMenu = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,6 +140,24 @@ public class MainFrame extends javax.swing.JFrame {
 
         menuBar.add(helpMenu);
 
+        studentMenu.setText("Etudiants");
+
+        jMenuItem1.setText("Ajouter Etudiant");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        studentMenu.add(jMenuItem1);
+
+        jMenuItem2.setText("jMenuItem2");
+        studentMenu.add(jMenuItem2);
+
+        jMenuItem3.setText("jMenuItem3");
+        studentMenu.add(jMenuItem3);
+
+        menuBar.add(studentMenu);
+
         setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -197,6 +224,12 @@ public class MainFrame extends javax.swing.JFrame {
         openWindow(new AuteurInternalFrame());
     }//GEN-LAST:event_auteurMenuItemActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        
+        
+        openWindow(new StudentInternalFrame());
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -244,6 +277,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JMenu libraryMenu;
     private javax.swing.JMenuBar menuBar;
@@ -251,6 +287,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
+    private javax.swing.JMenu studentMenu;
     // End of variables declaration//GEN-END:variables
 
 }

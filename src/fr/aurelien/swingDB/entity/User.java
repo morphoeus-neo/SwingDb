@@ -46,6 +46,8 @@ public int getId() {
         return name;
     }
 
+    // on utilise ici return this pour pouvoir chainer les méthodes
+    // user.setName("toto").setfirstName("titi").sexe("M");
     public User setName(String name) {
         this.name = name;
         return this;

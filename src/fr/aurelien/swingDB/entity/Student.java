@@ -90,5 +90,9 @@ public class Student {
         System.out.println(sb.toString());
 
     }
+    @Override
+    public String toString(){
+        return firstName + " " + name;
+    }
 
 }
