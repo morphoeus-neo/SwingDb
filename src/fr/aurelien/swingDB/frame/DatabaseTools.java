@@ -72,10 +72,9 @@ public class DatabaseTools {
         Connection cn = DatabaseConnection.getInstance();
 
         String sql = "UPDATE auteurs SET nom=?, prenom=? WHERE id = ?";
-        String sql2 = "WHERE id=?";
         
         
-
+        
         // Création de la requette préparée
         PreparedStatement pstm = cn.prepareStatement(sql);
         // Passage des valeurs
