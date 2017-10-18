@@ -147,8 +147,11 @@ public class StudentDAO implements DAOInterface<Student, StudentDAO> {
 public List<Student> getAll() throws SQLException{
     List<Student> studentList = new ArrayList<>();
     
-    while (resultSet.isBeforeFirst()) {
+    if (resultSet.isBeforeFirst()) {
+        while (! resultSet.isLast()) {
         studentList.add(this.getOne());
+    }
+    
         
     }
     return studentList;
@@ -156,11 +159,15 @@ public List<Student> getAll() throws SQLException{
 
 public List<Map<String, String>> getAllAsArray() throws SQLException{
      List<Map<String, String>> studentList = new ArrayList<>();
-    while (resultSet.isBeforeFirst()) {
+    
+     if (resultSet.isBeforeFirst()) {
+        while (! resultSet.isLast()) {
         studentList.add(this.getOneAsMap());
         
         
     }
+    }
+     
     
     return studentList;
 }
